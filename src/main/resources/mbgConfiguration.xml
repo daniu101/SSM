@@ -40,7 +40,7 @@
         </javaModelGenerator>    
     
         <!--对应的mapper.xml文件  -->    
-        <sqlMapGenerator targetPackage="mappers" targetProject="com.qingyu.mapping">    
+        <sqlMapGenerator targetPackage="mappers" targetProject="./src/main/java/com/qingyu/mapping">    
             <property name="enableSubPackages" value="true"/>    
         </sqlMapGenerator>    
     
@@ -49,9 +49,8 @@
             <property name="enableSubPackages" value="true"/>    
         </javaClientGenerator>    
     
-    
         <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->    
-        <table tableName="user" domainObjectName="User"    
+        <table tableName="sysInfo" domainObjectName="SysInfo"    
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"    
                enableSelectByExample="false" selectByExampleQueryId="false" >    
             <property name="useActualColumnNames" value="false"/>    

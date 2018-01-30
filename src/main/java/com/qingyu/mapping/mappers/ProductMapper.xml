@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingyu.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.qingyu.model.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tittle" jdbcType="VARCHAR" property="tittle" />
+    <result column="tag1" jdbcType="INTEGER" property="tag1" />
+    <result column="tag2" jdbcType="INTEGER" property="tag2" />
+    <result column="tag3" jdbcType="INTEGER" property="tag3" />
+    <result column="subStart" jdbcType="INTEGER" property="substart" />
+    <result column="subEnd" jdbcType="INTEGER" property="subend" />
+    <result column="investTerm" jdbcType="INTEGER" property="investterm" />
+    <result column="domain" jdbcType="INTEGER" property="domain" />
+    <result column="fundFront" jdbcType="INTEGER" property="fundfront" />
+    <result column="fundBlack" jdbcType="INTEGER" property="fundblack" />
+    <result column="rate" jdbcType="REAL" property="rate" />
+    <result column="process" jdbcType="REAL" property="process" />
+    <result column="timeSrart" jdbcType="TIMESTAMP" property="timesrart" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="scale" jdbcType="INTEGER" property="scale" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="bonusInvite" jdbcType="INTEGER" property="bonusinvite" />
+    <result column="bonusShare" jdbcType="INTEGER" property="bonusshare" />
+    <result column="issuer" jdbcType="INTEGER" property="issuer" />
+    <result column="structure" jdbcType="INTEGER" property="structure" />
+    <result column="channel" jdbcType="INTEGER" property="channel" />
+    <result column="profitType" jdbcType="INTEGER" property="profittype" />
+    <result column="interestType" jdbcType="INTEGER" property="interesttype" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="ratioMix" jdbcType="INTEGER" property="ratiomix" />
+    <result column="rateMortgage" jdbcType="INTEGER" property="ratemortgage" />
+    <result column="investProvince" jdbcType="VARCHAR" property="investprovince" />
+    <result column="investCity" jdbcType="VARCHAR" property="investcity" />
+    <result column="investDistrict" jdbcType="VARCHAR" property="investdistrict" />
+    <result column="tip" jdbcType="VARCHAR" property="tip" />
+    <result column="collection" jdbcType="INTEGER" property="collection" />
+    <result column="see" jdbcType="INTEGER" property="see" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.qingyu.model.Product">
+    <result column="highlights" jdbcType="LONGVARCHAR" property="highlights" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tittle, tag1, tag2, tag3, subStart, subEnd, investTerm, domain, fundFront, fundBlack, 
+    rate, process, timeSrart, state, scale, type, bonusInvite, bonusShare, issuer, structure, 
+    channel, profitType, interestType, level, ratioMix, rateMortgage, investProvince, 
+    investCity, investDistrict, tip, collection, see, time
+  </sql>
+  <sql id="Blob_Column_List">
+    highlights
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qingyu.model.Product">
+    insert into product (id, tittle, tag1, 
+      tag2, tag3, subStart, 
+      subEnd, investTerm, domain, 
+      fundFront, fundBlack, rate, 
+      process, timeSrart, state, 
+      scale, type, bonusInvite, 
+      bonusShare, issuer, structure, 
+      channel, profitType, interestType, 
+      level, ratioMix, rateMortgage, 
+      investProvince, investCity, investDistrict, 
+      tip, collection, see, 
+      time, highlights)
+    values (#{id,jdbcType=INTEGER}, #{tittle,jdbcType=VARCHAR}, #{tag1,jdbcType=INTEGER}, 
+      #{tag2,jdbcType=INTEGER}, #{tag3,jdbcType=INTEGER}, #{substart,jdbcType=INTEGER}, 
+      #{subend,jdbcType=INTEGER}, #{investterm,jdbcType=INTEGER}, #{domain,jdbcType=INTEGER}, 
+      #{fundfront,jdbcType=INTEGER}, #{fundblack,jdbcType=INTEGER}, #{rate,jdbcType=REAL}, 
+      #{process,jdbcType=REAL}, #{timesrart,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, 
+      #{scale,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{bonusinvite,jdbcType=INTEGER}, 
+      #{bonusshare,jdbcType=INTEGER}, #{issuer,jdbcType=INTEGER}, #{structure,jdbcType=INTEGER}, 
+      #{channel,jdbcType=INTEGER}, #{profittype,jdbcType=INTEGER}, #{interesttype,jdbcType=INTEGER}, 
+      #{level,jdbcType=INTEGER}, #{ratiomix,jdbcType=INTEGER}, #{ratemortgage,jdbcType=INTEGER}, 
+      #{investprovince,jdbcType=VARCHAR}, #{investcity,jdbcType=VARCHAR}, #{investdistrict,jdbcType=VARCHAR}, 
+      #{tip,jdbcType=VARCHAR}, #{collection,jdbcType=INTEGER}, #{see,jdbcType=INTEGER}, 
+      #{time,jdbcType=TIMESTAMP}, #{highlights,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qingyu.model.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tittle != null">
+        tittle,
+      </if>
+      <if test="tag1 != null">
+        tag1,
+      </if>
+      <if test="tag2 != null">
+        tag2,
+      </if>
+      <if test="tag3 != null">
+        tag3,
+      </if>
+      <if test="substart != null">
+        subStart,
+      </if>
+      <if test="subend != null">
+        subEnd,
+      </if>
+      <if test="investterm != null">
+        investTerm,
+      </if>
+      <if test="domain != null">
+        domain,
+      </if>
+      <if test="fundfront != null">
+        fundFront,
+      </if>
+      <if test="fundblack != null">
+        fundBlack,
+      </if>
+      <if test="rate != null">
+        rate,
+      </if>
+      <if test="process != null">
+        process,
+      </if>
+      <if test="timesrart != null">
+        timeSrart,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="bonusinvite != null">
+        bonusInvite,
+      </if>
+      <if test="bonusshare != null">
+        bonusShare,
+      </if>
+      <if test="issuer != null">
+        issuer,
+      </if>
+      <if test="structure != null">
+        structure,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="profittype != null">
+        profitType,
+      </if>
+      <if test="interesttype != null">
+        interestType,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="ratiomix != null">
+        ratioMix,
+      </if>
+      <if test="ratemortgage != null">
+        rateMortgage,
+      </if>
+      <if test="investprovince != null">
+        investProvince,
+      </if>
+      <if test="investcity != null">
+        investCity,
+      </if>
+      <if test="investdistrict != null">
+        investDistrict,
+      </if>
+      <if test="tip != null">
+        tip,
+      </if>
+      <if test="collection != null">
+        collection,
+      </if>
+      <if test="see != null">
+        see,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="highlights != null">
+        highlights,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tittle != null">
+        #{tittle,jdbcType=VARCHAR},
+      </if>
+      <if test="tag1 != null">
+        #{tag1,jdbcType=INTEGER},
+      </if>
+      <if test="tag2 != null">
+        #{tag2,jdbcType=INTEGER},
+      </if>
+      <if test="tag3 != null">
+        #{tag3,jdbcType=INTEGER},
+      </if>
+      <if test="substart != null">
+        #{substart,jdbcType=INTEGER},
+      </if>
+      <if test="subend != null">
+        #{subend,jdbcType=INTEGER},
+      </if>
+      <if test="investterm != null">
+        #{investterm,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null">
+        #{domain,jdbcType=INTEGER},
+      </if>
+      <if test="fundfront != null">
+        #{fundfront,jdbcType=INTEGER},
+      </if>
+      <if test="fundblack != null">
+        #{fundblack,jdbcType=INTEGER},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=REAL},
+      </if>
+      <if test="process != null">
+        #{process,jdbcType=REAL},
+      </if>
+      <if test="timesrart != null">
+        #{timesrart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="bonusinvite != null">
+        #{bonusinvite,jdbcType=INTEGER},
+      </if>
+      <if test="bonusshare != null">
+        #{bonusshare,jdbcType=INTEGER},
+      </if>
+      <if test="issuer != null">
+        #{issuer,jdbcType=INTEGER},
+      </if>
+      <if test="structure != null">
+        #{structure,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=INTEGER},
+      </if>
+      <if test="profittype != null">
+        #{profittype,jdbcType=INTEGER},
+      </if>
+      <if test="interesttype != null">
+        #{interesttype,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="ratiomix != null">
+        #{ratiomix,jdbcType=INTEGER},
+      </if>
+      <if test="ratemortgage != null">
+        #{ratemortgage,jdbcType=INTEGER},
+      </if>
+      <if test="investprovince != null">
+        #{investprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="investcity != null">
+        #{investcity,jdbcType=VARCHAR},
+      </if>
+      <if test="investdistrict != null">
+        #{investdistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="tip != null">
+        #{tip,jdbcType=VARCHAR},
+      </if>
+      <if test="collection != null">
+        #{collection,jdbcType=INTEGER},
+      </if>
+      <if test="see != null">
+        #{see,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="highlights != null">
+        #{highlights,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qingyu.model.Product">
+    update product
+    <set>
+      <if test="tittle != null">
+        tittle = #{tittle,jdbcType=VARCHAR},
+      </if>
+      <if test="tag1 != null">
+        tag1 = #{tag1,jdbcType=INTEGER},
+      </if>
+      <if test="tag2 != null">
+        tag2 = #{tag2,jdbcType=INTEGER},
+      </if>
+      <if test="tag3 != null">
+        tag3 = #{tag3,jdbcType=INTEGER},
+      </if>
+      <if test="substart != null">
+        subStart = #{substart,jdbcType=INTEGER},
+      </if>
+      <if test="subend != null">
+        subEnd = #{subend,jdbcType=INTEGER},
+      </if>
+      <if test="investterm != null">
+        investTerm = #{investterm,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null">
+        domain = #{domain,jdbcType=INTEGER},
+      </if>
+      <if test="fundfront != null">
+        fundFront = #{fundfront,jdbcType=INTEGER},
+      </if>
+      <if test="fundblack != null">
+        fundBlack = #{fundblack,jdbcType=INTEGER},
+      </if>
+      <if test="rate != null">
+        rate = #{rate,jdbcType=REAL},
+      </if>
+      <if test="process != null">
+        process = #{process,jdbcType=REAL},
+      </if>
+      <if test="timesrart != null">
+        timeSrart = #{timesrart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="bonusinvite != null">
+        bonusInvite = #{bonusinvite,jdbcType=INTEGER},
+      </if>
+      <if test="bonusshare != null">
+        bonusShare = #{bonusshare,jdbcType=INTEGER},
+      </if>
+      <if test="issuer != null">
+        issuer = #{issuer,jdbcType=INTEGER},
+      </if>
+      <if test="structure != null">
+        structure = #{structure,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=INTEGER},
+      </if>
+      <if test="profittype != null">
+        profitType = #{profittype,jdbcType=INTEGER},
+      </if>
+      <if test="interesttype != null">
+        interestType = #{interesttype,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="ratiomix != null">
+        ratioMix = #{ratiomix,jdbcType=INTEGER},
+      </if>
+      <if test="ratemortgage != null">
+        rateMortgage = #{ratemortgage,jdbcType=INTEGER},
+      </if>
+      <if test="investprovince != null">
+        investProvince = #{investprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="investcity != null">
+        investCity = #{investcity,jdbcType=VARCHAR},
+      </if>
+      <if test="investdistrict != null">
+        investDistrict = #{investdistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="tip != null">
+        tip = #{tip,jdbcType=VARCHAR},
+      </if>
+      <if test="collection != null">
+        collection = #{collection,jdbcType=INTEGER},
+      </if>
+      <if test="see != null">
+        see = #{see,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="highlights != null">
+        highlights = #{highlights,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qingyu.model.Product">
+    update product
+    set tittle = #{tittle,jdbcType=VARCHAR},
+      tag1 = #{tag1,jdbcType=INTEGER},
+      tag2 = #{tag2,jdbcType=INTEGER},
+      tag3 = #{tag3,jdbcType=INTEGER},
+      subStart = #{substart,jdbcType=INTEGER},
+      subEnd = #{subend,jdbcType=INTEGER},
+      investTerm = #{investterm,jdbcType=INTEGER},
+      domain = #{domain,jdbcType=INTEGER},
+      fundFront = #{fundfront,jdbcType=INTEGER},
+      fundBlack = #{fundblack,jdbcType=INTEGER},
+      rate = #{rate,jdbcType=REAL},
+      process = #{process,jdbcType=REAL},
+      timeSrart = #{timesrart,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      bonusInvite = #{bonusinvite,jdbcType=INTEGER},
+      bonusShare = #{bonusshare,jdbcType=INTEGER},
+      issuer = #{issuer,jdbcType=INTEGER},
+      structure = #{structure,jdbcType=INTEGER},
+      channel = #{channel,jdbcType=INTEGER},
+      profitType = #{profittype,jdbcType=INTEGER},
+      interestType = #{interesttype,jdbcType=INTEGER},
+      level = #{level,jdbcType=INTEGER},
+      ratioMix = #{ratiomix,jdbcType=INTEGER},
+      rateMortgage = #{ratemortgage,jdbcType=INTEGER},
+      investProvince = #{investprovince,jdbcType=VARCHAR},
+      investCity = #{investcity,jdbcType=VARCHAR},
+      investDistrict = #{investdistrict,jdbcType=VARCHAR},
+      tip = #{tip,jdbcType=VARCHAR},
+      collection = #{collection,jdbcType=INTEGER},
+      see = #{see,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP},
+      highlights = #{highlights,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qingyu.model.Product">
+    update product
+    set tittle = #{tittle,jdbcType=VARCHAR},
+      tag1 = #{tag1,jdbcType=INTEGER},
+      tag2 = #{tag2,jdbcType=INTEGER},
+      tag3 = #{tag3,jdbcType=INTEGER},
+      subStart = #{substart,jdbcType=INTEGER},
+      subEnd = #{subend,jdbcType=INTEGER},
+      investTerm = #{investterm,jdbcType=INTEGER},
+      domain = #{domain,jdbcType=INTEGER},
+      fundFront = #{fundfront,jdbcType=INTEGER},
+      fundBlack = #{fundblack,jdbcType=INTEGER},
+      rate = #{rate,jdbcType=REAL},
+      process = #{process,jdbcType=REAL},
+      timeSrart = #{timesrart,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      bonusInvite = #{bonusinvite,jdbcType=INTEGER},
+      bonusShare = #{bonusshare,jdbcType=INTEGER},
+      issuer = #{issuer,jdbcType=INTEGER},
+      structure = #{structure,jdbcType=INTEGER},
+      channel = #{channel,jdbcType=INTEGER},
+      profitType = #{profittype,jdbcType=INTEGER},
+      interestType = #{interesttype,jdbcType=INTEGER},
+      level = #{level,jdbcType=INTEGER},
+      ratioMix = #{ratiomix,jdbcType=INTEGER},
+      rateMortgage = #{ratemortgage,jdbcType=INTEGER},
+      investProvince = #{investprovince,jdbcType=VARCHAR},
+      investCity = #{investcity,jdbcType=VARCHAR},
+      investDistrict = #{investdistrict,jdbcType=VARCHAR},
+      tip = #{tip,jdbcType=VARCHAR},
+      collection = #{collection,jdbcType=INTEGER},
+      see = #{see,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

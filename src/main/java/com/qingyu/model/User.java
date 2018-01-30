@@ -1,13 +1,17 @@
 package com.qingyu.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Integer id;
 
-    private String userName;
+    private String name;
 
-    private String password;
+    private Integer phone;
 
-    private Integer age;
+    private String wechat;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -17,35 +21,27 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public Integer getPhone() {
+        return phone;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getWechat() {
+        return wechat;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setWechat(String wechat) {
+        this.wechat = wechat == null ? null : wechat.trim();
     }
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password="
-				+ password + ", age=" + age + "]";
-	}
-    
-    
 }
