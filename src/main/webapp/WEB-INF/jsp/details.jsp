@@ -6,6 +6,6 @@
   </head>  
     
   <body>  
-    ${product.id}  
+    ${product}  
   </body>  
 </html>  
