@@ -503,106 +503,106 @@
 		SELECT * FROM product
 		<where>
 			<if test="tittle != null">
-				tittle = #{tittle,jdbcType=VARCHAR},
+				tittle = #{tittle,jdbcType=VARCHAR}
 			</if>
 			<if test="tag1 != null">
-				tag1 = #{tag1,jdbcType=INTEGER},
+				tag1 = #{tag1,jdbcType=INTEGER}
 			</if>
 			<if test="tag2 != null">
-				tag2 = #{tag2,jdbcType=INTEGER},
+				tag2 = #{tag2,jdbcType=INTEGER}
 			</if>
 			<if test="tag3 != null">
-				tag3 = #{tag3,jdbcType=INTEGER},
+				tag3 = #{tag3,jdbcType=INTEGER}
 			</if>
 			<if test="substart != null">
-				subStart = #{substart,jdbcType=INTEGER},
+				subStart = #{substart,jdbcType=INTEGER}
 			</if>
 			<if test="subend != null">
-				subEnd = #{subend,jdbcType=INTEGER},
+				subEnd = #{subend,jdbcType=INTEGER}
 			</if>
 			<if test="investterm != null">
-				investTerm = #{investterm,jdbcType=INTEGER},
+				investTerm = #{investterm,jdbcType=INTEGER}
 			</if>
 			<if test="domain != null">
-				domain = #{domain,jdbcType=INTEGER},
+				domain = #{domain,jdbcType=INTEGER}
 			</if>
 			<if test="fundfront != null">
-				fundFront = #{fundfront,jdbcType=INTEGER},
+				fundFront = #{fundfront,jdbcType=INTEGER}
 			</if>
 			<if test="fundblack != null">
-				fundBlack = #{fundblack,jdbcType=INTEGER},
+				fundBlack = #{fundblack,jdbcType=INTEGER}
 			</if>
 			<if test="rate != null">
-				rate = #{rate,jdbcType=REAL},
+				rate = #{rate,jdbcType=REAL}
 			</if>
 			<if test="process != null">
-				process = #{process,jdbcType=REAL},
+				process = #{process,jdbcType=REAL}
 			</if>
 			<if test="timesrart != null">
-				timeSrart = #{timesrart,jdbcType=TIMESTAMP},
+				timeSrart = #{timesrart,jdbcType=TIMESTAMP}
 			</if>
 			<if test="state != null">
-				state = #{state,jdbcType=INTEGER},
+				state = #{state,jdbcType=INTEGER}
 			</if>
 			<if test="scale != null">
-				scale = #{scale,jdbcType=INTEGER},
+				scale = #{scale,jdbcType=INTEGER}
 			</if>
 			<if test="type != null">
-				type = #{type,jdbcType=INTEGER},
+				type = #{type,jdbcType=INTEGER}
 			</if>
 			<if test="bonusinvite != null">
-				bonusInvite = #{bonusinvite,jdbcType=INTEGER},
+				bonusInvite = #{bonusinvite,jdbcType=INTEGER}
 			</if>
 			<if test="bonusshare != null">
-				bonusShare = #{bonusshare,jdbcType=INTEGER},
+				bonusShare = #{bonusshare,jdbcType=INTEGER}
 			</if>
 			<if test="issuer != null">
-				issuer = #{issuer,jdbcType=INTEGER},
+				issuer = #{issuer,jdbcType=INTEGER}
 			</if>
 			<if test="structure != null">
-				structure = #{structure,jdbcType=INTEGER},
+				structure = #{structure,jdbcType=INTEGER}
 			</if>
 			<if test="channel != null">
-				channel = #{channel,jdbcType=INTEGER},
+				channel = #{channel,jdbcType=INTEGER}
 			</if>
 			<if test="profittype != null">
-				profitType = #{profittype,jdbcType=INTEGER},
+				profitType = #{profittype,jdbcType=INTEGER}
 			</if>
 			<if test="interesttype != null">
-				interestType = #{interesttype,jdbcType=INTEGER},
+				interestType = #{interesttype,jdbcType=INTEGER}
 			</if>
 			<if test="level != null">
-				level = #{level,jdbcType=INTEGER},
+				level = #{level,jdbcType=INTEGER}
 			</if>
 			<if test="ratiomix != null">
-				ratioMix = #{ratiomix,jdbcType=INTEGER},
+				ratioMix = #{ratiomix,jdbcType=INTEGER}
 			</if>
 			<if test="ratemortgage != null">
-				rateMortgage = #{ratemortgage,jdbcType=INTEGER},
+				rateMortgage = #{ratemortgage,jdbcType=INTEGER}
 			</if>
 			<if test="investprovince != null">
-				investProvince = #{investprovince,jdbcType=VARCHAR},
+				investProvince = #{investprovince,jdbcType=VARCHAR}
 			</if>
 			<if test="investcity != null">
-				investCity = #{investcity,jdbcType=VARCHAR},
+				investCity = #{investcity,jdbcType=VARCHAR}
 			</if>
 			<if test="investdistrict != null">
-				investDistrict = #{investdistrict,jdbcType=VARCHAR},
+				investDistrict = #{investdistrict,jdbcType=VARCHAR}
 			</if>
 			<if test="tip != null">
-				tip = #{tip,jdbcType=VARCHAR},
+				tip = #{tip,jdbcType=VARCHAR}
 			</if>
 			<if test="collection != null">
-				collection = #{collection,jdbcType=INTEGER},
+				collection = #{collection,jdbcType=INTEGER}
 			</if>
 			<if test="see != null">
-				see = #{see,jdbcType=INTEGER},
+				see = #{see,jdbcType=INTEGER}
 			</if>
 			<if test="time != null">
-				time = #{time,jdbcType=TIMESTAMP},
+				time = #{time,jdbcType=TIMESTAMP}
 			</if>
 			<if test="highlights != null">
-				highlights = #{highlights,jdbcType=LONGVARCHAR},
+				highlights = #{highlights,jdbcType=LONGVARCHAR}
 			</if>
 		</where>
 	</select>

@@ -32,9 +32,10 @@ public class ProductController {
     public String index(Map<String, Object> model){  
     	
     	Product product = new Product();
+    	product.setTag1(1);
     	
     	List<Product> productList = this.productService.getProductIndex(product);
-        model.put("product", productList);  
+        model.put("productList", productList);  
         
         return "index";  
     }  
