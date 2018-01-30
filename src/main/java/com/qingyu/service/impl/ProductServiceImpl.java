@@ -1,4 +1,6 @@
 package com.qingyu.service.impl;
+import java.util.List;
+
 import javax.annotation.Resource;  
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,12 @@ public class ProductServiceImpl implements IProductService {
     public Product getProductById(int id) {  
         // TODO Auto-generated method stub  
         return this.productDao.selectByPrimaryKey(id);  
-    }  
+    }
+
+	@Override
+	public List<Product> getProductIndex(Product record) {
+		// TODO Auto-generated method stub
+		return this.productDao.selectProductIndex(record);
+	}  
   
 }  

@@ -1,4 +1,5 @@
 package com.qingyu.controller;
+import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 import org.slf4j.Logger;
@@ -24,6 +25,18 @@ public class ProductController {
         Product product = this.productService.getProductById(productId);
         model.put("product", product);  
         return "details";  
+    }  
+    
+    // /product/index/
+    @RequestMapping(value="/index",method=RequestMethod.GET)  
+    public String index(Map<String, Object> model){  
+    	
+    	Product product = new Product();
+    	
+    	List<Product> productList = this.productService.getProductIndex(product);
+        model.put("product", productList);  
+        
+        return "index";  
     }  
     
 }  
